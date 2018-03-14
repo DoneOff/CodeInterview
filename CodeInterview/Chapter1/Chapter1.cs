@@ -17,6 +17,7 @@ namespace CodeInterview.Chapter1
             Dictionary<char, bool> dic = new Dictionary<char, bool>();
             string msg = "在“{0}”中，'{1}'重复出现！ ";
             for (int i = 0; i < str.Length; i++)
+
             {
                 char c = char.Parse(str.Substring(i, 1));
                 if (dic.ContainsKey(c))
