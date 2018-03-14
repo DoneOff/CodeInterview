@@ -32,5 +32,20 @@ namespace CodeInterview.Chapter1
             }
             return false;
         }
+
+        /// <summary>
+        /// 反转字符串
+        /// </summary>
+        /// <param name="str">需要反转的字符串</param>
+        /// <returns>反转的结果</returns>
+        public static string StringReserve(string str){
+            char[] chars = new char[str.Length];
+            for(int i = str.Length;i>0;i--){
+                chars[str.Length-i]=char.Parse(str.Substring(i-1,1));
+            }
+            string revesedStr =new string(chars);
+            Console.WriteLine("反转结果为："+revesedStr);
+           return revesedStr;
+        }
     }
 }
