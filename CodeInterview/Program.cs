@@ -13,7 +13,6 @@ namespace CodeInterview
         {
             while (true)
             {
-
                 Console.WriteLine("请输入校验字符串，输入 exit 退出。");
                 string str = Console.ReadLine();
                 if(str.Equals("exit"))break;
