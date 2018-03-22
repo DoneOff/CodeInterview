@@ -167,5 +167,39 @@ namespace CodeInterview.Chapter1
             return result;
 
         }
+
+        /// <summary>
+        /// 向右旋转90°的 N*N 二维数组
+        /// </summary>
+        /// <param name="matrix"> N*N 二维数组</param>
+        /// <param name="n">N的大小</param>
+        /// <returns>旋转后的二维数组</returns>
+        public static int[][] rotate(int[][] matrix, int n) {
+
+            for (int layer = 0; layer < n / 2; layer++) {
+                int first = layer;
+                int last = n - 1 - layer;
+
+                for(int i = first; i < last; i++)
+                {
+
+                    int offset = i - first;
+                    //存储top
+                    int top = matrix[first][i];
+
+                    //左边移动到上面
+                    matrix[first][i] = matrix[last-offset][i];
+
+                    //下面移动到左面
+                    matrix[last-offset][i] = matrix[last][last-offset];
+
+                    //右面移动到下面
+                    matrix[last][last - offset] = matrix[i][first];
+
+                    matrix[i][first] = top;
+                }
+            }
+            return matrix;
+        }
     }
 }
