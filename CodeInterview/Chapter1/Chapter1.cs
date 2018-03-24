@@ -174,29 +174,33 @@ namespace CodeInterview.Chapter1
         /// <param name="matrix"> N*N 二维数组</param>
         /// <param name="n">N的大小</param>
         /// <returns>旋转后的二维数组</returns>
-        public static int[][] rotate(int[][] matrix, int n) {
+        public static string[,] rotate(string[,] matrix, int n) {
 
+            //??layer是如何推算出 n/2 的？
             for (int layer = 0; layer < n / 2; layer++) {
                 int first = layer;
+
+                //??这一步是如何来的？怎样推算出来的？
                 int last = n - 1 - layer;
 
                 for(int i = first; i < last; i++)
                 {
 
+                    //?? offset是如何推算出来的？
                     int offset = i - first;
                     //存储top
-                    int top = matrix[first][i];
+                    string top = matrix[first,i];
 
                     //左边移动到上面
-                    matrix[first][i] = matrix[last-offset][i];
+                    matrix[first,i] = matrix[last-offset,first];
 
                     //下面移动到左面
-                    matrix[last-offset][i] = matrix[last][last-offset];
+                    matrix[last-offset,first] = matrix[last,last-offset];
 
                     //右面移动到下面
-                    matrix[last][last - offset] = matrix[i][first];
+                    matrix[last,last - offset] = matrix[i,last];
 
-                    matrix[i][first] = top;
+                    matrix[i,last] = top;
                 }
             }
             return matrix;

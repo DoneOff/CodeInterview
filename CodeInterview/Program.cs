@@ -10,7 +10,8 @@ namespace CodeInterview
             //Chapter1_2();
             //Chapter1_3();
             //Chapter1_4();
-            Chapter1_5();
+            //Chapter1_5();
+            Chapter1_6();
         }
 
         private static void Chapter1_1()
@@ -87,6 +88,19 @@ namespace CodeInterview
 
             }
 
+        }
+
+        private static void Chapter1_6() {
+            while (true)
+            {
+                IUtility utility = new Utility();
+                string[,] matrix = utility.ReadMatrix();
+                Console.WriteLine("输入的二维数组为：");
+                utility.WriteMatrix(matrix);
+                var result = Chapter1.Chapter1.rotate(matrix, matrix.GetLength(0));
+                Console.WriteLine("旋转后的二维数组为：");
+                utility.WriteMatrix(result);
+            }
         }
     }
 }
